@@ -10,11 +10,11 @@ const Greeting = (props: GreetingType) => {
 };
 
 export default function App() {
-  const [prix, setPrix] = useState(1);
+  const [prix, setPrix] = useState<number>(1);
   return (
     <div className="max-w-sm m-auto px-4 py-4 bg-slate-600 ">
       <h1 className="text-3xl text-center text-white font-bold underline">
-        Comprendre le typeScript avec React !!
+        Comprendre React avec typeScript!!
       </h1>
       <Greeting name="John" />
       <Greeting name="Sabrina" />
@@ -23,7 +23,9 @@ export default function App() {
         type="text"
         value={prix}
         placeholder="prix..."
-        onChange={(event) => setPrix(event.target.value)}
+        onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+          setPrix(event.target.value)
+        }
       />
       <p className="text-lg text-white my-3">{prix * 2} £</p>
     </div>
